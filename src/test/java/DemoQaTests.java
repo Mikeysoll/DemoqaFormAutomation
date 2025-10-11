@@ -11,17 +11,19 @@ import static com.codeborne.selenide.Selenide.*;
 public class DemoQaTests {
 
     @BeforeAll
-    static void beforeAll() {
+    static void configureBrowser() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void fillFormTest() {
 
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
+
         $("#firstName").setValue("Mike");
         $("#lastName").setValue("Solovyov");
         $("#userEmail").setValue("contact@mikeysoll.ru");
@@ -33,7 +35,6 @@ public class DemoQaTests {
         $("#userNumber").setValue("9853612907");
         $(".react-datepicker__day.react-datepicker__day--015").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
-//        $$("#hobbies-checkbox-1, #hobbies-checkbox-2, #hobbies-checkbox-3").click();
         $(byText("Reading")).click();
         $(byText("Music")).click();
         $(byText("Sports")).click();
@@ -44,10 +45,19 @@ public class DemoQaTests {
         $(byText("Select City")).click();
         $(byText("Karnal")).click();
         $("#submit").click();
-        sleep(3000);
+
+        $(".table-responsive").shouldHave(text("Mike Solovyov"));
+        $(".table-responsive").shouldHave(text("contact@mikeysoll.ru"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("9853612907"));
+        $(".table-responsive").shouldHave(text("15 October,2002"));
+        $(".table-responsive").shouldHave(text("Maths"));
+        $(".table-responsive").shouldHave(text("Reading, Music, Sports"));
+        $(".table-responsive").shouldHave(text("pic.jpg"));
+        $(".table-responsive").shouldHave(text("Moscow, Red Square"));
+        $(".table-responsive").shouldHave(text("Haryana Karnal"));
+
         $("#closeLargeModal").click();
-
-
     }
 
 }
