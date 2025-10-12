@@ -13,13 +13,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PFPageObjectTests  extends TestBase{
 
-    private static final Logger log = LoggerFactory.getLogger(PFPageObjectTests.class);
-    PracticeFormPage practiceFormPage =  new PracticeFormPage();
-
     @Test
     void fillFormTest() {
 
-        practiceFormPage.openPage()
+        formPage.openPage()
                         .setFirstName("Mikhail")
                         .setLastName("Solovyov")
                         .setEmail("contact@mikeysoll.ru")
@@ -41,6 +38,7 @@ public class PFPageObjectTests  extends TestBase{
                         .checkResult("Student Email", "contact@mikeysoll.ru")
                         .checkResult("Gender", "Male")
                         .checkResult("Mobile", "9853612907")
+                        .checkResult("Date of Birth", "15 October,2002")
                         .checkResult("Subjects", "Maths, Computer Science")
                         .checkResult("Hobbies", "Reading, Music, Sports")
                         .checkResult("Picture", "pic.jpg")
@@ -50,4 +48,22 @@ public class PFPageObjectTests  extends TestBase{
 
     }
 
+    @Test
+    void fillWithMinimalDataTest(){
+
+        formPage.openPage()
+                .setFirstName("Mikhail")
+                .setLastName("Solovyov")
+                .setGender("Male")
+                .setUserNumber("9853612907")
+                .setDateOfBirth("15", "October", "2002")
+                .submitForm()
+
+                .checkResult("Student Name", "Mikhail Solovyov")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "9853612907")
+                .checkResult("Date of Birth", "15 October,2002")
+                .closeModal();
+
+    }
 }
