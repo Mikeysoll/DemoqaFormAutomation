@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -6,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PageObjectDQTest {
+public class PracticeFormTests {
 
     @BeforeAll
     static void configureBrowser() {
@@ -30,7 +32,6 @@ public class PageObjectDQTest {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("October");
         $(".react-datepicker__year-select").selectOption("2002");
-        $("#userNumber").setValue("9853612907");
         $(".react-datepicker__day.react-datepicker__day--015").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
         $(byText("Reading")).click();
