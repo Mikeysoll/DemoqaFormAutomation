@@ -6,6 +6,7 @@ import pages.components.CalendarComponent;
 import java.util.Arrays;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -131,6 +132,11 @@ public class PracticeFormPage {
     public PracticeFormPage closeModal() {
         closeModal.click();
 
+        return this;
+    }
+
+    public PracticeFormPage checkValidation() {
+        $(".was-validated").shouldBe(visible);
         return this;
     }
 

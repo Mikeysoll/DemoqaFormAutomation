@@ -66,4 +66,12 @@ public class PFPageObjectTests  extends TestBase{
                 .closeModal();
 
     }
+
+    @Test
+    void negativeTest(){
+        formPage.openPage()
+                .submitForm()
+                .checkValidation();
+
+    }
 }
