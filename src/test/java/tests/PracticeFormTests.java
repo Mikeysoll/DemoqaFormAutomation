@@ -37,7 +37,7 @@ public class PracticeFormTests {
         $(byText("Reading")).click();
         $(byText("Music")).click();
         $(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("pic.jpg");
+        $("#uploadPicture").uploadFromClasspath("img/pic.jpg");
         $("#currentAddress").setValue("Moscow, Red Square")        ;
         $(byText("Select State")).click();
         $(byText("Haryana")).click();
