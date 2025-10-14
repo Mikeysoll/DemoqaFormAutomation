@@ -28,7 +28,7 @@ public class PFPageObjectTests  extends TestBase{
                         .setHobbies("Reading")
                         .setHobbies("Music")
                         .setHobbies("Sports")
-                        .setPicture("pic.jpg")
+                        .setPicture("img/pic.jpg")
                         .setAddress("Moscow, Red Square")
                         .setState("Haryana")
                         .setCity("Karnal")
