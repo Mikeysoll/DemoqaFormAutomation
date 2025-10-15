@@ -8,54 +8,49 @@ public class PFFakerDataTests extends TestBase{
     @Test
     void fillFormTest() {
 
-        TestData data = new TestData();
-
         formPage.openPage()
-                        .setFirstName(data.firstName)
-                        .setLastName(data.lastName)
-                        .setEmail(data.userEmail)
-                        .setGender(data.gender)
-                        .setUserNumber(data.userNumber)
-                        .setDateOfBirth(data.day, data.month, data.year)
-                        .setSubjects(data.subject)
-                        .setHobbies(data.hobby)
+                        .setFirstName(testData.firstName)
+                        .setLastName(testData.lastName)
+                        .setEmail(testData.userEmail)
+                        .setGender(testData.gender)
+                        .setUserNumber(testData.userNumber)
+                        .setDateOfBirth(testData.day, data.month, data.year)
+                        .setSubjects(testData.subject)
+                        .setHobbies(testData.hobby)
                         .setPicture("img/pic.jpg")
-                        .setAddress(data.currentAddress)
-                        .setState(data.state)
-                        .setCity(data.city)
+                        .setAddress(testData.currentAddress)
+                        .setState(testData.state)
+                        .setCity(testData.city)
                         .submitForm()
 
-                        .checkResult("Student Name", data.firstName + " " + data.lastName)
-                        .checkResult("Student Email", data.userEmail)
-                        .checkResult("Gender", data.gender)
-                        .checkResult("Mobile", data.userNumber)
-                        .checkResult("Date of Birth", data.day + " " + data.month + "," + data.year)
-                        .checkResult("Subjects", data.subject)
-                        .checkResult("Hobbies", data.hobby)
+                        .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                        .checkResult("Student Email", testData.userEmail)
+                        .checkResult("Gender", testData.gender)
+                        .checkResult("Mobile", testData.userNumber)
+                        .checkResult("Date of Birth", testData.day + " " + data.month + "," + data.year)
+                        .checkResult("Subjects", testData.subject)
+                        .checkResult("Hobbies", testData.hobby)
                         .checkResult("Picture", "pic.jpg")
-                        .checkResult("Address", data.currentAddress)
-                        .checkResult("State and City", data.state + " " + data.city)
+                        .checkResult("Address", testData.currentAddress)
+                        .checkResult("State and City", testData.state + " " + testData.city)
                         .closeModal();
-
     }
 
     @Test
     void fillWithMinimalDataTest(){
 
-        TestData data = new TestData();
-
         formPage.openPage()
-                .setFirstName(data.firstName)
-                .setLastName(data.lastName)
-                .setGender(data.gender)
-                .setUserNumber(data.userNumber)
-                .setDateOfBirth(data.day, data.month, data.year)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
+                .setDateOfBirth(testData.day, testData.month, testData.year)
                 .submitForm()
 
-                .checkResult("Student Name", data.firstName + " " + data.lastName)
-                .checkResult("Gender", data.gender)
-                .checkResult("Mobile", data.userNumber)
-                .checkResult("Date of Birth", data.day + " " + data.month + "," + data.year)
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
                 .closeModal();
 
     }
