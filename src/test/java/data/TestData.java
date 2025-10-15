@@ -3,24 +3,25 @@ package data;
 import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
+import java.util.*;
 public class TestData {
 
-    Faker faker = new Faker(new Locale("en"));
+    Faker faker = new Faker(new Locale("ru"));
+    Faker fakerEn = new Faker(new Locale("en"));
 
     public  String  firstName = faker.name().firstName(),
                     lastName = faker.name().lastName(),
-                    userEmail = faker.internet().emailAddress(),
+                    userEmail = fakerEn.internet().emailAddress(),
                     gender = faker.options().option("Male", "Female", "Other"),
-                    userNumber = faker.number().digits(10),
+                    userNumber = faker.number().digits(10);
 
-                    day = String.format("%02d", faker.number().numberBetween(1, 28)),
-                    month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
-                    year = String.valueOf(faker.number().numberBetween(1900, 2100)),
+                    Date age = faker.date().birthday(18, 70);
+    public  String  day = new SimpleDateFormat("dd", Locale.US).format(age),
+                    month = new SimpleDateFormat("MMMM", Locale.US).format(age),
+                    year = new SimpleDateFormat("yyyy", Locale.US).format(age),
 
-                    subject = faker.options().option("Maths", "Physics", "Chemistry", "Commerce", "Economics", "Computer Science ", "Arts"),
+                    subject = faker.options().option("Maths","Accounting","Arts","Social Studies","Physics","Chemistry",
+                            "Computer Science","Commerce","Economics","Civics","English","Hindi","Biology","History"),
                     hobby = faker.options().option("Sports", "Reading", "Music"),
                     currentAddress = faker.address().fullAddress(),
                     state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
@@ -29,10 +30,10 @@ public class TestData {
    private  String getCityByState(String state){
 
         return switch (state) {
-            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "NCR" ->           faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
-            case "Haryana" -> faker.options().option("Karnal", "Panipat");
-            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            case "Haryana" ->       faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" ->     faker.options().option("Jaipur", "Jaiselmer");
         default -> "";
         };
 
