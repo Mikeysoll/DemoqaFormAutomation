@@ -22,7 +22,6 @@ public class PFFakerDataTests extends TestBase{
                         .setState(testData.state)
                         .setCity(testData.city)
                         .submitForm()
-
                         .checkResult("Student Name", testData.firstName + " " + testData.lastName)
                         .checkResult("Student Email", testData.userEmail)
                         .checkResult("Gender", testData.gender)
@@ -32,8 +31,7 @@ public class PFFakerDataTests extends TestBase{
                         .checkResult("Hobbies", testData.hobby)
                         .checkResult("Picture", "pic.jpg")
                         .checkResult("Address", testData.currentAddress)
-                        .checkResult("State and City", testData.state + " " + testData.city)
-                        .closeModal();
+                        .checkResult("State and City", testData.state + " " + testData.city);
     }
 
     @Test
@@ -46,12 +44,10 @@ public class PFFakerDataTests extends TestBase{
                 .setUserNumber(testData.userNumber)
                 .setDateOfBirth(testData.day, testData.month, testData.year)
                 .submitForm()
-
                 .checkResult("Student Name", testData.firstName + " " + testData.lastName)
                 .checkResult("Gender", testData.gender)
                 .checkResult("Mobile", testData.userNumber)
-                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
-                .closeModal();
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year);
 
     }
 

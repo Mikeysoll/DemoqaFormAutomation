@@ -43,8 +43,7 @@ public class PFPageObjectTests  extends TestBase{
                         .checkResult("Hobbies", "Reading, Music, Sports")
                         .checkResult("Picture", "pic.jpg")
                         .checkResult("Address", "Moscow, Red Square")
-                        .checkResult("State and City", "Haryana Karnal")
-                        .closeModal();
+                        .checkResult("State and City", "Haryana Karnal");
 
     }
 
@@ -62,8 +61,7 @@ public class PFPageObjectTests  extends TestBase{
                 .checkResult("Student Name", "Mikhail Solovyov")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "9853612907")
-                .checkResult("Date of Birth", "15 October,2002")
-                .closeModal();
+                .checkResult("Date of Birth", "15 October,2002");
 
     }
 

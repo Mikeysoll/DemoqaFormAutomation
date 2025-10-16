@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.ModalComponent;
 
 import java.util.Arrays;
 
@@ -29,6 +30,7 @@ public class PracticeFormPage {
             closeModal = $("#closeLargeModal");
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    ModalComponent modalComponent = new ModalComponent();
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
@@ -120,23 +122,13 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage checkResult(String key, String value)   {
-        $(".table-responsive")
-                .$(byText(key))
-                .parent()
-                .shouldHave(text(value));
-
-        return this;
-    }
-
-    public PracticeFormPage closeModal() {
-        closeModal.click();
-
-        return this;
-    }
-
     public PracticeFormPage checkValidation() {
         $(".was-validated").shouldBe(visible);
+        return this;
+    }
+
+    public PracticeFormPage checkResult(String key, String value) {
+        modalComponent.checkResult(key, value);
         return this;
     }
 
