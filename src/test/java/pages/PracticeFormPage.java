@@ -26,8 +26,7 @@ public class PracticeFormPage {
             addressInput = $("#currentAddress"),
             stateInput = $("#stateCity-wrapper").$(byText("Select State")),
             cityInput = $("#stateCity-wrapper").$(byText("Select City")),
-            submitForm = $("#submit"),
-            closeModal = $("#closeLargeModal");
+            submitForm = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ModalComponent modalComponent = new ModalComponent();
@@ -130,6 +129,10 @@ public class PracticeFormPage {
     public PracticeFormPage checkResult(String key, String value) {
         modalComponent.checkResult(key, value);
         return this;
+    }
+
+    public void closeModal() {
+        modalComponent.closeModal();
     }
 
 

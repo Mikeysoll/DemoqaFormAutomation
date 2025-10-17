@@ -14,8 +14,7 @@ public class ModalComponent {
         return this;
     }
 
-    public ModalComponent closeModal() {
+    public void closeModal() {
         $("#closeLargeModal").click();
-        return this;
     }
 }
